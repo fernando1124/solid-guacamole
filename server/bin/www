@@ -1,0 +1,9 @@
+#!/usr/bin/env node
+var app = require('./../server/server.js'),
+    port = process.env.PORT || 2016;
+
+app.set('port', port);
+
+app.listen(port, function() {
+  console.log('Server is available at http://localhost:' + port);
+});

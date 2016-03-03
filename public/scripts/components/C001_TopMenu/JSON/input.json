@@ -1,0 +1,20 @@
+{
+    "title": "Radiobox",
+    "menus":[{
+    	"name": "Home",
+    	"href": "#scene-01",
+        "selected": true
+    },
+    {
+    	"name": "Bio",
+    	"href": "#scene-02"
+    },
+    {
+    	"name": "Dates",
+    	"href": "#scene-03"
+    },
+    {
+    	"name": "Media",
+    	"href": "http://www.amonamarth.com"
+    }]
+}

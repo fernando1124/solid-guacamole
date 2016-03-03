@@ -1,0 +1,13 @@
+<link rel="stylesheet" href="scripts/components/C001_TopMenu/css/C001_TopMenu.css"/>
+
+<header class="C001_TopMenu">
+    <div class="row">
+        <span class="title">{{title}}</span>
+        <div class="spacer"></div>
+        <nav class="navigation">
+            {{#each menus}}
+                <a class="link {{test this.selected true 'link-selected' '' }}" href="{{this.href}}">{{this.name}}</a>
+            {{/each}}
+        </nav>
+    </div>
+</header>
