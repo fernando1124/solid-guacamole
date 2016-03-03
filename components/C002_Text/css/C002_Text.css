@@ -1,0 +1,25 @@
+.C002_Text {
+	color: black;
+	padding: 10px;
+}
+
+.C002_Text .text-zone {
+	display: flex;
+	flex-direction: column;
+	flex-wrap: wrap;
+	-webkit-box-orient: vertical;
+	-webkit-box-direction: normal;
+	font-size: 16px;
+	font-weight: 400;
+	min-height: 200px;
+	overflow: hidden;
+	z-index: 1;
+	position: relative;
+	background-color: white;
+	border-radius: 2px;
+	padding: 0 5px;
+}
+
+.C002_Text .text-zone .text {
+	text-align: justify;
+}
