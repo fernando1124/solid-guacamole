@@ -1,6 +1,6 @@
 var Global = {
 	SiteConstants: {
-		BASE_URL: "http://localhost/newsite/",
+		BASE_URL: "http://" + window.location.host + "/",
 		COMPONENTS_REL_URL: "scripts/components/",
 		SCENES_REL_URL: "scripts/scenes/",
 		MOCK_FILE_REL_URL: "/JSON/input.json",
@@ -42,7 +42,7 @@ var Global = {
 					var html = this.template(this.data);
 					if(this.root && this.root.length > 0) {
 						if(this.isAppendable) {
-							this.root.append(html);	
+							this.root.append(html);
 						} else {
 							this.root.html(html);
 						}

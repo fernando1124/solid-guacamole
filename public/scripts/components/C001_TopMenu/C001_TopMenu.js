@@ -7,7 +7,6 @@ define(["handlebars", "jQuery"],function(hbs) {
                 app.dom.click("a.link", function() {
                     app.root.parent().find(".scene").hide();
                     console.log(this);
-                    debugger;
                 });
             });
             return app;
@@ -15,4 +14,3 @@ define(["handlebars", "jQuery"],function(hbs) {
     }
     return factory;
 });
-
