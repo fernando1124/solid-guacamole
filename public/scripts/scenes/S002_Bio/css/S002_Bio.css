@@ -1,0 +1,9 @@
+.S002_Bio {
+    color: white;
+}
+
+.S002_Bio .row .column {
+    width: 45%;
+    text-align: center;
+    box-sizing: border-box;
+}

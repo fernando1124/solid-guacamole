@@ -1,4 +1,4 @@
-define(["handlebars","helpers","C000_TheBigOne"],function(hbs,helpers,C000_TheBigOne) {
+define(["handlebars","helpers","S000_Main"],function(hbs,helpers,S000_Main) {
     var useMockData = true;
 
     //INIT CONSTANTS AUTO EXEC FUNCTION
@@ -12,5 +12,5 @@ define(["handlebars","helpers","C000_TheBigOne"],function(hbs,helpers,C000_TheBi
     Global.HBS = hbs;
     helpers.initRegistration();
 
-    C000_TheBigOne.init();
+    S000_Main.initOn($('body'),true);
 });
