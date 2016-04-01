@@ -72,6 +72,7 @@
     font-size: 13px;
     margin: 0;
     color: white;
+    cursor: pointer;
 }
 
 .C001_TopMenu .row .navigation .link.link-selected {

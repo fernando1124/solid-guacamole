@@ -1,11 +1,20 @@
 define([],function() {
+    
+    var ImageComponent = Object.create(Global.BaseComponent);
+    ImageComponent.name = Global.ComponentNames.C003_IMAGE;
+    
+    ImageComponent.initialize = function() {
+        return this;
+    }
+    
     var factory = 
     {
-        createOn: function(root) 
+        instances: 0,
+        create: function() 
         {
-            var app = Object.create(Global.BaseComponent);
-            app.name = Global.ComponentNames.C003_IMAGE;
-            app.loadTemplate(root);
+            var app = Object.create(ImageComponent);
+            app.id = Global.ComponentNames.C003_IMAGE+"-"+this.instances;
+            this.instances++;
             return app;
         }
     }

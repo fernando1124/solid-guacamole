@@ -7,14 +7,8 @@ define(["C001_TopMenu", "S001_Home", "S002_Bio"],function(C001_TopMenuFactory, S
             this.loadTemplate(root).done(function() {                
                 this.addComponent(C001_TopMenuFactory.create(), this.root.find("#top-container"));
                 this.addScene(S001_Home, this.root.find("#scene-01"), true);
+                this.addScene(S002_Bio, this.root.find("#scene-02"));
             });
-            /*this.loadTemplate($("body")).done(function() {
-                C001_TopMenuFactory.createOn($("#top-container"));
-                S001_Home.initOn($("#scene-01"), true);
-                S002_Bio.initOn($("#scene-02"));
-            });*/
-	}
-        
-        
+	}        
 	return app;
 });

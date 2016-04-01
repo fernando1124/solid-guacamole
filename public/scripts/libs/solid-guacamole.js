@@ -1,11 +1,33 @@
 var Director = {
+    currentScene: false,
     scenes: {},
     
-    registerScene: function(objScene) {
+    registerScene: function(objScene, isCurrent) {
+        if(isCurrent) {
+            this.currentScene = objScene;
+        }
         this.scenes[objScene.name] = objScene;
     },
+    
     getScene: function(sceneId) {
         return this.scenes[sceneId];
+    },
+    
+    changeScene: function(nextScene) {
+        var nextScene = this.getScene(nextScene);
+        if(nextScene) {
+            this.currentScene.deactivateScene();
+            nextScene.activateScene();
+            this.currentScene = nextScene;
+        } else {
+            this.deactivateScenes();
+        }
+    },
+    
+    deactivateScenes: function() {
+        for(var scene in this.scenes) {
+            this.getScene(scene).deactivateScene();
+        }
     }
 };
 
@@ -18,7 +40,6 @@ var Global = {
         TEMPLATE_REL_URL: "/html/template.hbs"
     },
     ComponentNames: {
-        C000_THEBIGONE: "C000_TheBigOne",
         C001_TOPMENU: "C001_TopMenu",
         C002_TEXT: "C002_Text",
         C003_IMAGE: "C003_Image"
@@ -30,6 +51,7 @@ var Global = {
     },
     BaseComponent: {
         name: "Component Name Goes Here",
+        id: "",
         isMocked: true,
         isAppendable: true,
         template: "",
@@ -55,7 +77,8 @@ var Global = {
                                 } else {
                                     this.root.html(html);
                                 }
-                                this.dom = this.root.find("div").eq(0);
+                                this.dom = this.root.find("header,div").eq(0);
+                                this.dom.attr("id",this.id);
                             } else {
                                 console.log("Couldn't find root '$(" + this.root.selector + ")' to append component '" + this.name + "'");
                             }
@@ -83,7 +106,6 @@ var Global = {
         }
     },
     BaseScene: {
-        root: null,
         isActive: false,
         name: "DefaultScene",
         templateReady: false,
@@ -131,7 +153,7 @@ var Global = {
         },
         addScene: function(objScene, parent, isActive) {
             objScene.initOn(parent, isActive);
-            Director.registerScene(objScene);
+            Director.registerScene(objScene, isActive);
         },
         activateScene: function() {
             this.isActive = true;

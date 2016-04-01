@@ -3,6 +3,7 @@ define(["handlebars", "jQuery"],function(hbs) {
         instances: 0,        
         create: function() {
             var app = Object.create(TopMenu);
+            app.id = Global.ComponentNames.C001_TOPMENU+"-"+this.instances;
             this.instances++;
             return app;
         }
@@ -17,8 +18,9 @@ define(["handlebars", "jQuery"],function(hbs) {
     }
     TopMenu.changeMenu = function() {
         this.root.find(".link").click(function() {
-            $(this).parent().find('.link').removeClass("link-selected");
+            $(this).parent().find(".link").removeClass("link-selected");
             $(this).addClass("link-selected");
+            Director.changeScene($(this).data("scene"));
         });
     }
     

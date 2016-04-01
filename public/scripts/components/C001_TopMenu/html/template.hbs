@@ -6,7 +6,7 @@
         <div class="spacer"></div>
         <nav class="navigation">
             {{#each menus}}
-                <a class="link {{test this.selected true 'link-selected' '' }}" href="{{this.href}}">{{this.name}}</a>
+                <a class="link {{test this.selected true 'link-selected' '' }}" data-scene="{{this.scene}}">{{this.name}}</a>
             {{/each}}
         </nav>
     </div>

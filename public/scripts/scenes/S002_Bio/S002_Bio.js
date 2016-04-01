@@ -6,7 +6,8 @@ define(["C002_Text", "C003_Image"],function(C002_TextFactory, C003_ImageFactory)
         this.root = root;
         this.isActive = (isActive);
         this.loadTemplate(this.root).done(function() {
-            C002_TextFactory.createOn(this.root.find('.column').eq(0));
+            this.addComponent(C002_TextFactory.create(), this.dom.find(".column").eq(0));
+            this.addComponent(C003_ImageFactory.create(), this.dom.find(".column").eq(1));
         });
     }
     return app;

@@ -6,9 +6,9 @@ define(["C002_Text", "C003_Image"],function(C002_TextFactory, C003_ImageFactory)
         this.root = root;
         this.isActive = (isActive);
         this.loadTemplate(this.root).done(function() {
-            C003_ImageFactory.createOn(this.dom.find(".column").eq(1));
-            C002_TextFactory.createOn(this.dom.find(".column").eq(0));
-            C002_TextFactory.createOn(this.dom.find(".column").eq(2));
+            this.addComponent(C002_TextFactory.create(), this.dom.find(".column").eq(0));
+            this.addComponent(C003_ImageFactory.create(), this.dom.find(".column").eq(1));
+            this.addComponent(C002_TextFactory.create(), this.dom.find(".column").eq(2));
         });
     };
     return app;
